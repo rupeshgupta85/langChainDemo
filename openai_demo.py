@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 
 # Set your Bearer token directly (or use .env)
-#API_TOKEN = "O70Q3NzyiohFbCzmxNqS9Oj6Td90pWB5M74cGQp3"
+#API_TOKEN = ""
 
 load_dotenv()  # Load environment variables from .env file
 
