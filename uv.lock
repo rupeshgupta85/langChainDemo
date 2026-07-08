@@ -632,6 +632,7 @@ dependencies = [
     { name = "langchain-community" },
     { name = "langchain-openai" },
     { name = "langsmith", extra = ["claude-agent-sdk"] },
+    { name = "numpy" },
     { name = "openai" },
 ]
 
@@ -641,6 +642,7 @@ requires-dist = [
     { name = "langchain-community", specifier = ">=0.4.2" },
     { name = "langchain-openai", specifier = ">=1.3.3" },
     { name = "langsmith", extras = ["claude-agent-sdk"], specifier = ">=0.9.4" },
+    { name = "numpy", specifier = ">=2.1.0" },
     { name = "openai", specifier = ">=2.44.0" },
 ]
 
