@@ -15,7 +15,7 @@ import streamlit as st
 
 # Page configuration
 st.set_page_config(
-    page_title="History-Aware RAG StreamlitChat",
+    page_title="History-Aware RAG Streamlit Chat",
     page_icon="💬",
     layout="wide"
 )
@@ -84,19 +84,19 @@ def find_document_file():
     possible_paths = [
         # Same directory as script
         os.path.join(script_dir, "product-data.txt"),
-        # In historyaware_rag subfolder (one level)
-        os.path.join(script_dir, "historyaware_rag", "product-data.txt"),
+        # In historyaware_streamlit_rag subfolder (one level)
+        os.path.join(script_dir, "historyaware_streamlit_rag", "product-data.txt"),
         # In historyaware_streamlit_rag subfolder (one level)
         os.path.join(script_dir, "historyaware_streamlit_rag", "product-data.txt"),
         # Parent directory
         os.path.join(os.path.dirname(script_dir), "product-data.txt"),
         # Parent directory with subfolder
-        os.path.join(os.path.dirname(script_dir), "historyaware_rag", "product-data.txt"),
+        os.path.join(os.path.dirname(script_dir), "historyaware_streamlit_rag", "product-data.txt"),
         # Current working directory
         os.path.join(os.getcwd(), "product-data.txt"),
         # Relative paths
         "product-data.txt",
-        "historyaware_rag/product-data.txt",
+        "historyaware_streamlit_rag/product-data.txt",
         "historyaware_streamlit_rag/product-data.txt",
     ]
     
@@ -117,13 +117,14 @@ def initialize_components(_content: str = None):
     
     # LLM
     llm = ChatOpenAI(
-        model="us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+        #model="us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+        model="openai.gpt-5-nano",
         api_key=GE_API_KEY,
         base_url="https://openai.generative.engine.capgemini.com/v1",
-        default_headers={"x-api-key": GE_API_KEY},
-        temperature=0.3,
-        max_tokens=512,
-        timeout=30,
+        #default_headers={"x-api-key": GE_API_KEY},
+        # temperature=0.3,
+        # max_tokens=512,
+        # timeout=30,
     )
     
     # Initialize content variable
@@ -203,7 +204,7 @@ except FileNotFoundError as e:
     1. Upload a text file using the sidebar, OR
     2. Place `product-data.txt` in one of these locations:
        - Same folder as the script
-       - `historyaware_rag/` subfolder
+       - `historyaware_streamlit_rag/` subfolder
        - `historyaware_streamlit_rag/` subfolder
     """)
     st.stop()

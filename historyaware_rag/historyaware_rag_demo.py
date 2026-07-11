@@ -68,18 +68,18 @@ llm = ChatOpenAI(
 
 # Build path to document
 script_dir = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(script_dir, "historyaware_streamlit_rag", "product-data.txt")
+file_path = os.path.join(script_dir, "historyaware_rag", "product-data.txt")
 
 # Load document
 try:
-    with open("historyaware_streamlit_rag/product-data.txt", "r", encoding="utf-8") as f:
+    with open("product-data.txt", "r", encoding="utf-8") as f:
         content = f.read()
     documents = [Document(page_content=content, metadata={"source": "product-data.txt"})]
     print(f"Loaded document from: {file_path}")
     print(f"Document size: {len(content)} characters")
 except FileNotFoundError:
     print(f"Error: File not found at {file_path}")
-    print("Please ensure product-data.txt is in the historyaware_streamlit_rag folder.")
+    print("Please ensure product-data.txt is in the historyaware_rag folder.")
     exit(1)
 
 # Split document
